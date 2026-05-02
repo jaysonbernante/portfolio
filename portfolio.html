@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Jayson Bernante</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #2a1c14;
+            color: #fff;
+        }
+        .navbar, .dropdown-menu {
+            background: transparent !important;
+            box-shadow: none;
+            transition: background 0.3s;
+        }
+        .navbar.scrolled {
+            background: rgba(16, 26, 32, 0.9) !important;
+            box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+        }
+        .navbar {
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 600;
+            margin-right: 1rem;
+            position: relative;
+            transition: color 0.2s;
+        }
+        .portfolio-btn{
+  border-radius:10px;
+  border:2px solid #ff881a;
+  color:#ff881a;
+  font-weight:600;
+}
+
+.portfolio-btn:hover{
+  background-color:#ff881a;
+  color:#fff;
+  border-color:#ff881a;
+}        .project-card {
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+        }
+        .fade-panel {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 2500px;
+            overflow: hidden;
+            transition: opacity 0.35s ease, transform 0.35s ease, max-height 0.35s ease;
+        }
+        .fade-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            max-height: 0;
+            pointer-events: none;
+        }
+        .project-detail {
+            background: rgba(35,23,15,0.95);
+            border: 1px solid rgba(255,136,26,0.15);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .project-detail .small-badge {
+            background:#ff881a;
+            color:#fff;
+            font-size:0.8rem;
+            padding:0.35rem 0.85rem;
+            border-radius:999px;
+            display:inline-flex;
+            align-items:center;
+            gap:0.35rem;
+        }
+        .project-detail .feature-list li {
+            margin-bottom:0.8rem;
+        }
+        .project-detail .feature-list li::marker {
+               color: transparent
+        }
+
+        .project-detail .feature-list li::before {
+            content: '•';
+            color: #ff881a;
+            display: inline-block;
+            width: 1rem;
+        }
+        .project-card .card-img-top {
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover .card-img-top {
+            transform: scale(1.02);
+        }        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:hover {
+            color: #ff881a !important;
+        }
+        .navbar-nav .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #ff881a;
+            transition: width 0.3s;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+        }
+        .navbar-nav .nav-link.active::after,
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+        .portfolio-responsive {
+            font-size: clamp(0.85rem, 1.7vw, 1.15rem);
+        }
+        .portfolio-responsive-title {
+            font-size: clamp(1.2rem, 4vw, 2.8rem);
+        }
+        @media (max-width: 991px) {
+            .portfolio-justify {
+                text-align: left !important;
+            }
+            .portfolio-justify {
+                text-align: left !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page content goes here -->
+    <main class="d-flex flex-column align-items-center justify-content-center" style="min-height: 20vh; text-align: center;">
+        <h1 class="display-4 fw-bold mb-3 mt-2 portfolio-responsive-title">Portfolio</h1>
+        <p class="lead portfolio-responsive" style="max-width: 600px;">
+A showcase of my projects across web, mobile, desktop, and game development.        </p>
+    </main>
+    
+    <!-- Portfolio Projects -->
+    <section class="container mt-5" id="projectGridSection">
+        <div class="row g-4 fade-panel fade-visible" id="projectGridRow">
+            <div class="col-md-6 col-lg-4">
+                <div class="card project-card" data-project="1" style="background:#23170f; border:none; border-radius:12px; overflow:hidden;">
+                    <img src="asset/image/RIFDsys.jpg" class="card-img-top" alt="RIFD GymFitness System" style="height:200px; object-fit:cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:#fff; font-weight:600;">RIFD GymFitness System</h5>
+                        <p class="card-text" style="color:#d1d1d1; font-size:0.95rem;">A web-based gym management system that uses RFID to automate member check-ins, track memberships, and manage payments efficiently.A responsive movie and TV app using TMDb API, built with React, Vite, and TailwindCSS.</p>
+                        <div class="mb-2">
+                            <span class="badge" style="background:#ff881a; color:#fff;">PHP</span>
+                            <span class="badge" style="background:#ff881a; color:#fff;">Java script</span>
+                            <span class="badge" style="background:#ff881a; color:#fff;">TailwindCSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+               
+                <div class="card project-card" data-project="2" style="background:#23170f; border:none; border-radius:12px; overflow:hidden;">
+                    <img src="asset/image/FileManagementImage1.png" class="card-img-top" alt="File Personal Management" style="height:200px; object-fit:cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:#fff; font-weight:600;">File Personal Management</h5>
+                        <p class="card-text" style="color:#d1d1d1; font-size:0.95rem;">A file Personal management system that allows users to store and organize both local files and external links, create folders for better arrangement, and track file or link history including deleted items for easy recovery and monitoring.</p>
+                        <div class="mb-2">
+                            <span class="badge" style="background:#ff881a; color:#fff;">HTML</span>
+                            <span class="badge" style="background:#ff881a; color:#fff;">CSS</span>
+                            <span class="badge" style="background:#ff881a; color:#fff;">JavaScript</span>
+                            <span class="badge" style="background:#ff881a; color:#fff;">PHP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="col-md-6 col-lg-4">
+                <div class="card project-card" data-project="3" style="background:#23170f; border:none; border-radius:12px; overflow:hidden;">
+                    <img src="asset/image/project3.jpg" class="card-img-top" alt="Game Development Demo" style="height:200px; object-fit:cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:#fff; font-weight:600;">Game Development Demo</h5>
+                        <p class="card-text" style="color:#d1d1d1; font-size:0.95rem;">A 2D game project built with Visual Basic showing interactive gameplay and smooth controls.</p>
+                        <div class="mb-2">
+                            <span class="badge" style="background:#ff881a; color:#fff;">Visual Basic</span>
+                            <span class="badge" style="background:#ff881a; color:#fff;">Game Dev</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </section>
+    <!-- End Portfolio Projects -->
+
+    <!-- Project Detail View -->
+    <section id="projectDetailSection" class="container mt-5 fade-panel fade-hidden">
+        <div class="project-detail p-4 p-lg-5">
+            <div class="row gy-4 align-items-start">
+                <div class="col-lg-7">
+                    <div id="detailCarousel" class="carousel slide mb-3" data-bs-ride="false" style="border-radius:24px; overflow:hidden;">
+                        <div class="carousel-inner" id="detailCarouselInner">
+                            <div class="carousel-item active">
+                                <img id="detailSlide0" src="asset/image/project1.jpg" class="d-block w-100" alt="Project slide 1" style="height:320px; object-fit:cover;">
+                            </div>
+                            <div class="carousel-item">
+                                <img id="detailSlide1" src="asset/image/project1.jpg" class="d-block w-100" alt="Project slide 2" style="height:320px; object-fit:cover;">
+                            </div>
+                            <div class="carousel-item">
+                                <img id="detailSlide2" src="asset/image/project1.jpg" class="d-block w-100" alt="Project slide 3" style="height:320px; object-fit:cover;">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#detailCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#detailCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap" id="detailThumbRow">
+                        <img class="detail-thumb" src="asset/image/project1.jpg" data-slide-to="0" alt="Project thumbnail" style="width:72px; height:72px; object-fit:cover; border-radius:16px; cursor:pointer; border:2px solid #ff881a;">
+                        <img class="detail-thumb" src="asset/image/project1.jpg" data-slide-to="1" alt="Project thumbnail" style="width:72px; height:72px; object-fit:cover; border-radius:16px; cursor:pointer; border:2px solid transparent;">
+                        <img class="detail-thumb" src="asset/image/project1.jpg" data-slide-to="2" alt="Project thumbnail" style="width:72px; height:72px; object-fit:cover; border-radius:16px; cursor:pointer; border:2px solid transparent;">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                        <div class="small-badge">Personal Project</div>
+                        
+                    </div>
+                    <h2 id="detailTitle" style="color:#fff; font-weight:700;">Developed a web-based gym management system with RFID integration to automate check-ins, manage member data, track subscriptions, and streamline transactions in a centralized and efficient platform.</h2>
+                    <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+                        <a id="detailLink" href="#" target="_blank" class="small-badge" style="text-decoration:none;">movie-browser-app-gules.vercel.app/</a>
+                    </div>
+                    <div class="mb-4" style="color:#d1d1d1;">
+                        <div class="fw-bold mb-2" style="color:#fff;">Project Overview</div>
+                        <p id="detailOverview" style="margin:0;">This system is about making gym operations easier and more organized by replacing manual processes with a digital solution. It allows the gym to manage members, track their membership duration, and record payments in one system. Instead of writing attendance manually, members use an RFID card to tap in when entering the gym, and their time is automatically recorded.
+        It also helps the gym monitor who is active, expired, or about to expire, and keeps track of daily attendance and income. Overall, the system improves efficiency, reduces errors, and helps the gym staff manage everything faster and more accurately.</p>
+                    </div>
+                    <div class="accordion" id="detailAccordion">
+                        <div class="accordion-item" style="background:#1e1410; border:none;">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="background:#1e1410; color:#fff;">
+                                    The Challenge
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#detailAccordion">
+                                <div class="accordion-body" style="color:#d1d1d1;">
+                                    <span id="detailChallenge">Lingunan Fitness Gym relied on manual processes for tracking attendance, memberships, and payments, which led to inefficiencies, time-consuming tasks, and possible record errors.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="background:#1e1410; border:none;">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background:#1e1410; color:#fff;">
+                                    The Solution
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#detailAccordion">
+                                <div class="accordion-body" style="color:#d1d1d1;">
+                                    <span id="detailSolution">Developed a web-based gym management system with RFID integration to automate check-ins, manage member data, track subscriptions, and streamline transactions in a centralized and efficient platform.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h5 style="color:#fff;">Key Features</h5>
+                        <ul id="detailFeatures" class="feature-list" style="color:#d1d1d1; padding-left:1rem;"></ul>
+                    </div>
+                    <div class="mt-4">
+                        <button id="closeDetail" class="btn portfolio-btn px-4 py-2">Back to Projects</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Project Detail View -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 30) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            const projects = {
+                1: {
+                    title: 'RIFD GymFitness System',
+                    link: 'https://lingunanfitnessgym.free.nf/LingunanFitnessGym/public/client/index.php',
+                    overview: 'This system is about making gym operations easier and more organized by replacing manual processes with a digital solution. It allows the gym to manage members, track their membership duration, and record payments in one system. Instead of writing attendance manually, members use an RFID card to tap in when entering the gym, and their time is automatically recorded. It also helps the gym monitor who is active, expired, or about to expire, and keeps track of daily attendance and income. Overall, the system improves efficiency, reduces errors, and helps the gym staff manage everything faster and more accurately.',
+                    challenge: 'Lingunan Fitness Gym relied on manual processes for tracking attendance, memberships, and payments, which led to inefficiencies, time-consuming tasks, and possible record errors.',
+                    solution: 'Developed a web-based gym management system with RFID integration to automate check-ins, manage member data, track subscriptions, and streamline transactions in a centralized and efficient platform.',
+                    features: ['RFID-based member check-in and attendance tracking', 'Member registration and profile management', 'Subscription and expiration monitoring (Daily, Monthly, VIP)', 'Automated time-in/time-out logging','Payment and transaction recording','Admin dashboard with reports and analytics','Real-time status tracking (active, expired members)','Centralized database for secure data management'],
+                    images: ['asset/image/RFIDimage1.jpg', 'asset/image/RFIDimage2.png', 'asset/image/RFIDimage3.png','asset/image/RFIDimage4.png']
+                },
+                2: {
+                    title: 'File Personal Management',
+                    link: 'https://github.com/jaysonbernante/FilePersonalManagement.git',
+                    overview: 'This File Management System is a web-based application designed to help users efficiently organize, store, and manage both local files and external links in one centralized platform. It allows users to create folders for better organization, track file and link history, and monitor deleted items for possible recovery. The system improves accessibility, reduces file mismanagement, and provides a structured way of handling digital resources for better productivity and control.',
+                    challenge: 'Managing files from different sources (local storage and external links) often leads to disorganization, accidental deletion, and difficulty in tracking important resources or their history.',
+                    solution: 'Developed a file management system that centralizes storage by allowing users to save local files and external links, organize them into folders, and track file history including deleted items for better control,',
+                    features: ['Save and manage local files and external links', 'Create folders for organized file structure', 'Track file and link history', 'Monitor and restore deleted files or links','Monitor and restore deleted files or links','Easy search and access of stored resources'],
+                    images: ['asset/image/FileManagementImage1.png', 'asset/image/FileManagementImage2.png', 'asset/image/FileManagementImage1.png']
+                },
+                3: {
+                    title: 'Game Development Demo',
+                    link: '#',
+                    overview: 'A 2D game project built with Visual Basic featuring polished visuals, smooth controls, and level-based gameplay.',
+                    challenge: 'Deliver an engaging game prototype with interactive mechanics and responsive input.',
+                    solution: 'Used game loops and event-driven logic to create a responsive player experience with smooth animations.',
+                    features: ['Interactive gameplay', 'Level progression', 'Custom art assets', 'Responsive controls'],
+                    images: ['asset/image/project3.jpg', 'asset/image/project3.jpg', 'asset/image/project3.jpg']
+                }
+            };
+
+            const detailSection = document.getElementById('projectDetailSection');
+            const detailTitle = document.getElementById('detailTitle');
+            const detailLink = document.getElementById('detailLink');
+            const detailOverview = document.getElementById('detailOverview');
+            const detailChallenge = document.getElementById('detailChallenge');
+            const detailSolution = document.getElementById('detailSolution');
+            const detailFeatures = document.getElementById('detailFeatures');
+                    const detailSlide0 = document.getElementById('detailSlide0');
+                    const detailSlide1 = document.getElementById('detailSlide1');
+                    const detailSlide2 = document.getElementById('detailSlide2');
+                    const detailThumbs = document.querySelectorAll('.detail-thumb');
+                    const detailCarouselEl = document.getElementById('detailCarousel');
+                    const detailCarousel = new bootstrap.Carousel(detailCarouselEl, { interval: false, ride: false });
+                    const closeDetail = document.getElementById('closeDetail');
+
+                    detailCarouselEl.addEventListener('slid.bs.carousel', event => {
+                        detailThumbs.forEach((thumb, index) => {
+                            thumb.style.borderColor = index === event.to ? '#ff881a' : 'transparent';
+                        });
+                    });
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const projectId = card.getAttribute('data-project');
+                    const project = projects[projectId];
+                    if (!project) return;
+
+                    detailTitle.textContent = project.title;
+                    detailLink.textContent = project.link;
+                    detailLink.href = project.link;
+                    detailOverview.textContent = project.overview;
+                    detailChallenge.textContent = project.challenge;
+                    detailSolution.textContent = project.solution;
+                    detailFeatures.innerHTML = project.features.map(feature => `<li>${feature}</li>`).join('');
+
+                    detailSlide0.src = project.images[0];
+                    detailSlide1.src = project.images[1] || project.images[0];
+                    detailSlide2.src = project.images[2] || project.images[0];
+                    detailCarousel.to(0);
+
+                    detailThumbs.forEach((thumb, index) => {
+                        thumb.src = project.images[index] || project.images[0];
+                        thumb.style.borderColor = index === 0 ? '#ff881a' : 'transparent';
+                        thumb.onclick = () => {
+                            detailCarousel.to(index);
+                        };
+                    });
+
+                    document.getElementById('projectGridRow').classList.add('fade-hidden');
+                    detailSection.classList.remove('fade-hidden');
+                    detailSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            closeDetail.addEventListener('click', () => {
+                detailSection.classList.add('fade-hidden');
+                document.getElementById('projectGridRow').classList.remove('fade-hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

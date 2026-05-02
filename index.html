@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jayson Bernante | Web Developer</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body {
+			background: #2a1c14;
+			color: #fff;
+		}
+
+		.navbar,
+		.dropdown-menu {
+			background: transparent !important;
+			box-shadow: none;
+			transition: background 0.3s;
+		}
+
+		.navbar.scrolled {
+			background: rgba(16, 26, 32, 0.9) !important;
+			box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.08);
+		}
+
+		.navbar {
+			border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+		}
+
+		.navbar-nav .nav-link {
+			color: #fff !important;
+			font-weight: 600;
+			margin-right: 1rem;
+			position: relative;
+			transition: color 0.2s;
+		}
+
+		.navbar-nav .nav-link.active,
+		.navbar-nav .nav-link:hover {
+			color: #ff881a !important;
+		}
+
+		.navbar-nav .nav-link::after {
+			content: '';
+			display: block;
+			width: 0;
+			height: 2px;
+			background: #ff881a;
+			transition: width 0.3s;
+			position: absolute;
+			left: 0;
+			bottom: -6px;
+		}
+
+		.navbar-nav .nav-link.active::after,
+		.navbar-nav .nav-link:hover::after {
+			width: 100%;
+		}
+
+		.hero-section {
+			min-height: 80vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding-top: 60px;
+		}
+
+		.hero-title {
+			font-size: 3rem;
+			font-weight: 700;
+		}
+
+		.hero-title .highlight {
+			color: #ff881a;
+		}
+
+		.hero-subtitle {
+			color: #ff881a;
+			font-size: 1.5rem;
+			margin-bottom: 1em;
+		}
+
+		.hero-desc {
+			color: #d1d1d1;
+			font-size: 1.1rem;
+			margin-bottom: 2em;
+		}
+
+		.btn-primary {
+			background: #ff881a;
+			border: none;
+		}
+
+		.btn-primary:hover {
+			background: #ff6600;
+		}
+
+		.btn-outline-primary {
+			color: #ff881a;
+			border-color: #ff881a;
+		}
+
+		.btn-outline-primary:hover {
+			background: #ff881a;
+			color: #fff;
+		}
+
+		.social-icons a {
+			background: #23170f;
+			border-radius: 50%;
+			padding: 0.5em;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 1em;
+			transition: background 0.2s;
+		}
+
+		.social-icons a:hover {
+			background: #ff881a;
+		}
+
+		.profile-img {
+			width: 320px;
+			height: 400px;
+			object-fit: cover;
+			border-radius: 32px;
+			background: #4b2e1c;
+			position: relative;
+			z-index: 1;
+		}
+
+		.badge-custom {
+			background: #23170f;
+			color: #fff;
+			padding: 0.7em 1.5em;
+			border-radius: 16px;
+			font-weight: 700;
+			font-size: 1.1rem;
+			box-shadow: 0 4px 24px 0 #0008;
+			margin: 0.5em 0;
+			display: inline-block;
+		}
+
+		.badge-custom.position-absolute {
+			z-index: 2;
+			min-width: 110px;
+			text-align: center;
+			box-shadow: 0 4px 24px 0 #0008;
+		}
+
+		/* FRONTEND */
+		.badge-frontend {
+			animation: float1 4s ease-in-out infinite;
+		}
+
+		@keyframes float1 {
+			0% {
+				transform: translate(0, 0);
+			}
+
+			50% {
+				transform: translate(5px, -20px);
+			}
+
+			100% {
+				transform: translate(0, 0);
+			}
+		}
+
+		/* BACKEND */
+		.badge-backend {
+			animation: float2 5s ease-in-out infinite;
+		}
+
+		@keyframes float2 {
+			0% {
+				transform: translate(0, 0);
+			}
+
+			50% {
+				transform: translate(10px, -0px);
+			}
+
+			100% {
+				transform: translate(0, 0);
+			}
+		}
+
+		/* SOLUTIONS */
+		.badge-solutions {
+			animation: float3 3.5s ease-in-out infinite;
+		}
+
+		@keyframes float3 {
+			0% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(15px);
+			}
+
+			100% {
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes floatY {
+			0% {
+				transform: translateY(0px);
+			}
+
+			50% {
+				transform: translateY(-20px);
+			}
+
+			100% {
+				transform: translateY(0px);
+			}
+		}
+
+		.badge-frontend {
+			animation-delay: 0s;
+		}
+
+		.badge-backend {
+			animation-delay: 0.8s;
+		}
+
+		.badge-solutions {
+			animation-delay: 1.6s;
+		}
+
+		@media (max-width: 991px) {
+			.hero-section {
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.profile-img {
+				width: 220px;
+				height: 300px;
+				position: relative;
+				z-index: 1;
+			}
+
+			.badge-custom.position-absolute {
+				font-size: 0.85rem;
+				min-width: 60px;
+				padding: 0.4em 0.9em;
+			}
+
+			.hero-section .row {
+				flex-direction: column-reverse !important;
+				display: flex;
+			}
+
+			.badge-frontend {
+				left: 10px !important;
+				top: 18px !important;
+			}
+
+			.badge-backend {
+				left: 20px !important;
+				top: 55% !important;
+			}
+
+			.badge-solutions {
+				right: 10px !important;
+				bottom: 18px !important;
+			}
+		}
+
+		.badge-custom {
+			will-change: transform;
+		}
+
+		.profile-img {
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+		}
+
+		.badge-icon {
+			color: #ff881a;
+			margin-right: 6px;
+			animation: glowPulse 2s infinite alternate;
+		}
+
+		@keyframes glowPulse {
+			from {
+				text-shadow: 0 0 5px #ff881a;
+			}
+
+			to {
+				text-shadow:
+					0 0 10px #ff881a,
+					0 0 20px #ff881a,
+					0 0 35px #ff881a;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+		<div class="container">
+			<a class="navbar-brand fw-bold" href="#home"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="about.html">About</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="portfolio.html">Portfolio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="hero-section" id="home">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-7 mb-5 mb-lg-0">
+					<h1 class="hero-title mb-3">Hello, I'm <span class="highlight">Jayson<br>Bernante</span></h1>
+					<h2 class="hero-subtitle"><span id="typed-role"></span></h2>
+					<p class="hero-desc">
+						I'm a Web Developer and recent IT graduate with growing expertise in both frontend and backend development.
+						I specialize in building working applications that are responsive and focused on the user experience. I'm
+						passionate about adopting new technologies and transforming ideas into effective digital solutions.
+					</p>
+					<div class="mb-4">
+						<a href="portfolio.html" class="btn btn-primary me-2">View My Work</a>
+						<a href="contact.html" class="btn btn-outline-primary">Get In Touch</a>
+					</div>
+					<div class="social-icons mt-4">
+						<a href="https://www.facebook.com/bernante.jayson" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg"
+								alt="Facebook" width="24"></a>
+						<a href="https://www.linkedin.com/in/jayson-bernante-51a4a2402/" target="_blank">
+							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+								alt="LinkedIn" width="24">
+						</a>
+							<a href="https://github.com/jaysonbernante" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+								alt="GitHub" width="24"></a>
+					</div>
+				</div>
+				<div class="col-lg-5 d-flex flex-column align-items-center position-relative">
+					<img src="asset/image/myPicture.jpg" alt=" Jayson Bernante" class="profile-img mb-3">
+					<span class="badge-custom badge-frontend position-absolute" style="left:0; top:30px;">
+						<i class="fa-solid fa-code badge-icon"></i> Frontend
+					</span>
+
+					<span class="badge-custom badge-backend position-absolute" style="left:-40px; top:60%;">
+						<i class="fa-solid fa-server badge-icon"></i> Backend
+					</span>
+
+					<span class="badge-custom badge-solutions position-absolute" style="right:0; bottom:30px;">
+						<i class="fa-solid fa-lightbulb badge-icon"></i> Solutions
+					</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Typed.js for typing animation -->
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			new Typed('#typed-role', {
+				strings: ['Frontend Developer', 'Backend Developer'],
+				typeSpeed: 60,
+				backSpeed: 40,
+				backDelay: 1500,
+				startDelay: 300,
+				loop: true,
+				showCursor: true
+			});
+
+			// Navbar background on scroll
+			const navbar = document.querySelector('.navbar');
+			window.addEventListener('scroll', function () {
+				if (window.scrollY > 30) {
+					navbar.classList.add('scrolled');
+				} else {
+					navbar.classList.remove('scrolled');
+				}
+			});
+		});
+	</script>
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
